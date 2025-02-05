@@ -69,11 +69,12 @@ OPTIMIZATION
 - bucketing
 - optmize cluster
 - ...
+- Catalyst Optmizer do a lot, as we've seen
 
 ![image](https://github.com/user-attachments/assets/64fc331c-7eba-40e8-a4fb-7a635950ba7d)
 
-- Catalyst Optmizer do a lot, as we've seen
-- 
+
+
 - But there is Tungsten, with code optimization (tungsten gera código otimizado para cada task que está rodando)
 ![image](https://github.com/user-attachments/assets/5493dcf8-a612-4168-98fc-4bce1fe523fb)
 
@@ -82,6 +83,8 @@ OPTIMIZATION
 
 
 # Databricks
+source: https://www.youtube.com/watch?v=9yKecTXW2pY
+
 - Principalmente uma ferramenta pra atuar com o armazenamento/processamento de big data (mas não só)
 - Possui spark embutido, para processamento eficiente, bem como as delta tables, otimizadas para leitura e escrita e com suporte para acid
 ![image](https://github.com/user-attachments/assets/09d17c20-30bd-4d7d-81bf-bbf39a2354d7)
