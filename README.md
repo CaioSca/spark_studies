@@ -11,7 +11,16 @@ OVERVIEW
 - Se alguma tarefa, num executor, falha, o driver se encarrega de enviá-la para outro executor
 - Todos os processos rodam numa JVM (java virtual machine)
 
-DEPLOYMENT MODES
 
+DEPLOYMENT MODES
+- São 3:
+  - local, com tudo na sua máquina (drivers e executors) - (to play around)
+  - client, apenas com driver na sua máquina. Executors na cloud (testing/developing)
+  - cluster, com tudo na cloud (production requirement)
+ 
+
+RDDS, DATAFRAMES AND DATASETS
+- RDDs não são otimizadas por default, diferentemente dos dataframes (api high level - catalyst optimizer por trás dos panos) e datasets (scala - catalyst optmizer tb)
+- 
 
 
