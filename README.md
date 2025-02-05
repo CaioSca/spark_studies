@@ -1,5 +1,9 @@
 # Spark Studies
 
+source: https://www.youtube.com/watch?v=iXVIPQEGZ9Y 
+Thank's to Databricks For Professionals channel! <3 Pozdrawiam
+
+
 OVERVIEW
 - Possui um driver/master node e os worker nodes (algo parecido com o Kubernetes)
 - Master node recebe a demanda e divide-a com os worker nodes, da forma mais otimizada possível
@@ -52,6 +56,31 @@ LAZINESS OF SPARK
 DATA SHUFFLING
 - Depende também do tipo de dado! Agrupamentos/ordenação em colunas com alta cardinalidade tendem a demorar muito mais do que as mesmas operações em colunas com baixa cardinalidade!
 - Salva dados que estão em memória em disco, envia pela internet para outro executor, que por sua vez precisa ler o conteúdo para seguir com a agregação... esta etapa pode ser MUITO lenta. Evitar e otimizar ao máximo!
+
+
+OPTIMIZATION
+- What you can do to optimize? Use parquet or data, instead of csv
+- Avoid sorts
+- minimize volume of data
+- cache/persist dataframes
+- repartition / coalesce
+- avoid user defined functions - prefer built-in
+- partition and/or index data
+- bucketing
+- optmize cluster
+- ...
+
+![image](https://github.com/user-attachments/assets/64fc331c-7eba-40e8-a4fb-7a635950ba7d)
+
+- Catalyst Optmizer do a lot, as we've seen
+- 
+- But there is Tungsten, with code optimization (tungsten gera código otimizado para cada task que está rodando)
+![image](https://github.com/user-attachments/assets/5493dcf8-a612-4168-98fc-4bce1fe523fb)
+
+- Theres Adaptative Query Executor too (AQE): query re-optimization that occurs during query execution (otimiza número de partições durante o shuffling, por exemplo)
+![image](https://github.com/user-attachments/assets/e9b59212-9d75-4a71-8bdf-683ecef0a6a0)
+
+
 
 
 
