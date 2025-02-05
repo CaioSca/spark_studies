@@ -33,6 +33,25 @@ TIPOS DE OPERAÇÕES COM SPARK
   - transformações narrow não exigem que os executors troquem informações entre si, pq eles podem fazer a computação de maneira independente (FILTER, SELECT, CAST, Create new column, etc.)
   - transformações wide exigem data shuffling (troca entre executors), pq pressupõe agragações/ordenações de informações, considerando o todo (mesmo que particionado) -  GROUP BY, SORT, JOIN, etc. 
 - Ações:
-  - demanda por resultados (show, count, save, take) 
+  - demanda por resultados (show, count, save, take)
+- Enquanto transformações não demandam algum tipo de ação, o spark só "entende" o que ele precisa fazer, a estratégia... mas a execução em si se da com algum comando de ação
+- Transformações sem comandos de ação são extremamente velozes
+
+![image](https://github.com/user-attachments/assets/30e86509-5b9e-42e2-b40d-b7aa4f10cd5b)
+
+- Estágios começam um depois do outro. Normalmente, a barreira entre um e outro é o data shuffling. Primeiro Spark entende o que precisa fazer e depois de fato o faz (paralelizando computação e etc.)
+
+JOB x DAG
+
+LAZINESS OF SPARK
+- tenta aplicar narrow transformations antes das wide, otimizando
+- usar .explain() mostra o plano "físico" do que será feito na computação
+- explain em parâmetro (True) que te dá mais "planos" sobre os dados que serão processados
+
+
+DATA SHUFFLING
+- Depende também do tipo de dado! Agrupamentos/ordenação em colunas com alta cardinalidade tendem a demorar muito mais do que as mesmas operações em colunas com baixa cardinalidade!
+- Salva dados que estão em memória em disco, envia pela internet para outro executor, que por sua vez precisa ler o conteúdo para seguir com a agregação... esta etapa pode ser MUITO lenta. Evitar e otimizar ao máximo!
+
 
 
