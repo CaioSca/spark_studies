@@ -20,7 +20,19 @@ DEPLOYMENT MODES
  
 
 RDDS, DATAFRAMES AND DATASETS
-- RDDs não são otimizadas por default, diferentemente dos dataframes (api high level - catalyst optimizer por trás dos panos) e datasets (scala - catalyst optmizer tb)
-- 
+- RDDs não são otimizadas por default e sua api nao é tão intuitiva (low level - otimização só por meio de configs), diferentemente dos dataframes (api high level - catalyst optimizer por trás dos panos) e datasets (scala - fortemente tipado)
+- datasets exigem o case class, pra definir o schema dos dados que serão lidos e processados (grande diferença pro dataframe)
+- RDDs representam uma coleção de objetos imutáveis, que podem ser processadas em paralelo. Garante tolerância a falhas, linhagem de dados e tb uma série de transformações possíveis
+- DataFrames, inspirado no pandas python, é abstração high-level dos RDDs, se asemelhando com tabelas de bancos relacionais. Ofere otimizações pelo catalyst optimizer
+- DataSets, combina benefícios dos RDDs e DataFrames, oferece API fortemente tipada, que só pode ser usada em scala
+
+TIPOS DE OPERAÇÕES COM SPARK
+- Transformações:
+  - aplica-se regras de negócio sobre os dados, fazendo com que os RDDs/DataFrames/DataSets tornem-se em algo novo
+  - podem ser transformações do tipo narrow ou wide
+  - transformações narrow não exigem que os executors troquem informações entre si, pq eles podem fazer a computação de maneira independente (FILTER, SELECT, CAST, Create new column, etc.)
+  - transformações wide exigem data shuffling (troca entre executors), pq pressupõe agragações/ordenações de informações, considerando o todo (mesmo que particionado) -  GROUP BY, SORT, JOIN, etc. 
+- Ações:
+  - demanda por resultados (show, count, save, take) 
 
 
