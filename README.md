@@ -82,16 +82,3 @@ OPTIMIZATION
 ![image](https://github.com/user-attachments/assets/e9b59212-9d75-4a71-8bdf-683ecef0a6a0)
 
 
-# Databricks
-source: https://www.youtube.com/watch?v=9yKecTXW2pY
-
-- Principalmente uma ferramenta pra atuar com o armazenamento/processamento de big data (mas não só)
-- Possui spark embutido, para processamento eficiente, bem como as delta tables, otimizadas para leitura e escrita e com suporte para acid
-![image](https://github.com/user-attachments/assets/09d17c20-30bd-4d7d-81bf-bbf39a2354d7)
-
-
-![image](https://github.com/user-attachments/assets/9a43455b-38be-42da-aa5e-22b48e1c47ce)
-- Interação com o serviço pode se dar através de CLI / SDK (com python, por ex.) / API / Web UI
-- Possui funcionalidades como a de orquestração, catalagoção, armazenamento de queries, códigos e modelos de ML, permissionamento granular, storage próprio e diferentes (4) formas de computação
-
-- workspaces e notebooks ficam conectados a clusters específicos e tem seus dbfs próprios
