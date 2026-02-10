@@ -63,7 +63,7 @@ OPTIMIZATION
 - Avoid sorts
 - minimize volume of data
 - cache/persist dataframes
-- repartition / coalesce
+- repartition/coalesce
 - avoid user defined functions - prefer built-in
 - partition and/or index data
 - bucketing
